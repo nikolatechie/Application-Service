@@ -3,6 +3,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// html files
+app.use(express.static("html"));
+app.use(express.static("js"));
+
 // routes
 require("./routes/main.route")(app);
 require("./routes/movie.route")(app);
