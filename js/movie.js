@@ -29,8 +29,6 @@ function createMovie() {
 }
 
 function readMovies() {
-    const divRead = document.getElementsByClassName("read")[0];
-
     fetch("http://localhost:8080/api/movie", {
         method: "GET",
         headers: {
@@ -45,10 +43,10 @@ function readMovies() {
             if (data.message != null)
                 throw new Error("Error!");
 
-            let table = document.getElementsByTagName("table")[0];
+            let table = document.getElementsByTagName("table")[0].tBodies[0];
 
-            while (table.rows.length > 1)
-                table.deleteRow(1);
+            while (table.rows.length > 0)
+                table.deleteRow(0);
 
             data.forEach(it => {
                 const row = table.insertRow();
