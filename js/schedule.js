@@ -9,7 +9,7 @@ function createSchedule() {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6Im5ncnVqaWMyNDE5cm5AcmFmLnJzIiwicGFzc3dvcmQiOiIxMjMiLCJpYXQiOjE2NDI1MjE3Nzl9.L8dc7jCfOLDBWkw7awTM_MGk-yiQ81TwaHGaYOmTqn4"
+            "Authorization": "Bearer " + localStorage.getItem("token")
         },
         body: JSON.stringify({
             movieId: movieId,
@@ -33,7 +33,7 @@ function readSchedule() {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6Im5ncnVqaWMyNDE5cm5AcmFmLnJzIiwicGFzc3dvcmQiOiIxMjMiLCJpYXQiOjE2NDI1MjE3Nzl9.L8dc7jCfOLDBWkw7awTM_MGk-yiQ81TwaHGaYOmTqn4"
+            "Authorization": "Bearer " + localStorage.getItem("token")
         }
     })
         .then(res => {
@@ -83,7 +83,7 @@ function updateSchedule() {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6Im5ncnVqaWMyNDE5cm5AcmFmLnJzIiwicGFzc3dvcmQiOiIxMjMiLCJpYXQiOjE2NDI1MjE3Nzl9.L8dc7jCfOLDBWkw7awTM_MGk-yiQ81TwaHGaYOmTqn4"
+            "Authorization": "Bearer " + localStorage.getItem("token")
         },
         body: JSON.stringify({
             movieId: movieId,
@@ -110,7 +110,7 @@ function deleteSchedule() {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6Im5ncnVqaWMyNDE5cm5AcmFmLnJzIiwicGFzc3dvcmQiOiIxMjMiLCJpYXQiOjE2NDI1MjE3Nzl9.L8dc7jCfOLDBWkw7awTM_MGk-yiQ81TwaHGaYOmTqn4"
+            "Authorization": "Bearer " + localStorage.getItem("token")
         }
     }).then(res => {
         return res.json();

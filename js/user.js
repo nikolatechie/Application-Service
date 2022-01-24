@@ -9,7 +9,7 @@ function createUser() {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6Im5ncnVqaWMyNDE5cm5AcmFmLnJzIiwicGFzc3dvcmQiOiIxMjMiLCJpYXQiOjE2NDI1MjE3Nzl9.L8dc7jCfOLDBWkw7awTM_MGk-yiQ81TwaHGaYOmTqn4"
+            "Authorization": "Bearer " + localStorage.getItem("token")
         },
         body: JSON.stringify({
             role: role,
@@ -33,7 +33,7 @@ function readUsers() {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6Im5ncnVqaWMyNDE5cm5AcmFmLnJzIiwicGFzc3dvcmQiOiIxMjMiLCJpYXQiOjE2NDI1MjE3Nzl9.L8dc7jCfOLDBWkw7awTM_MGk-yiQ81TwaHGaYOmTqn4"
+            "Authorization": "Bearer " + localStorage.getItem("token")
         }
     })
         .then(res => {
@@ -64,6 +64,7 @@ function readUsers() {
                 td.appendChild(document.createTextNode(it.email));
 
                 td = row.insertCell();
+                it.password = it.password.substr(0, 18) + '...';
                 td.appendChild(document.createTextNode(it.password));
             });
 
@@ -83,7 +84,7 @@ function updateUser() {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6Im5ncnVqaWMyNDE5cm5AcmFmLnJzIiwicGFzc3dvcmQiOiIxMjMiLCJpYXQiOjE2NDI1MjE3Nzl9.L8dc7jCfOLDBWkw7awTM_MGk-yiQ81TwaHGaYOmTqn4"
+            "Authorization": "Bearer " + localStorage.getItem("token")
         },
         body: JSON.stringify({
             role: role,
@@ -110,7 +111,7 @@ function deleteUser() {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
-            "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6Im5ncnVqaWMyNDE5cm5AcmFmLnJzIiwicGFzc3dvcmQiOiIxMjMiLCJpYXQiOjE2NDI1MjE3Nzl9.L8dc7jCfOLDBWkw7awTM_MGk-yiQ81TwaHGaYOmTqn4"
+            "Authorization": "Bearer " + localStorage.getItem("token")
         }
     }).then(res => {
         return res.json();
